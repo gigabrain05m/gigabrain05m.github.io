@@ -363,18 +363,18 @@
 
     <br>
     <div>
-      <h3 class="title is-4" id="results"><span class="lang-en">GigaBrain-0.5 Performance</span><span class="lang-zh">GigaBrain-0.5 性能</span></h3>
+      <h3 class="title is-4" id="results-mstar"><span class="lang-en">GigaBrain-0.5M* Performance</span><span class="lang-zh">GigaBrain-0.5M* 性能</span></h3>
       <div class="content has-text-justified">
         <p>
-          <span class="lang-en">To evaluate performance on physical robots, we collect task-specific demonstrations on the target robot platform and post-train the model for each task. We evaluate on eight internal tasks and observe consistent improvements over prior policies (GigaBrain-0, $\pi_0$, $\pi_{0.5}$).</span>
-          <span class="lang-zh">为评估真实机器人上的性能，我们在目标机器人平台上采集任务特定的示范数据，并针对每个任务进行后训练。我们在 8 个内部任务上进行评测，观察到相比先前策略（GigaBrain-0、$\pi_0$、$\pi_{0.5}$）的持续一致提升。</span>
+          <span class="lang-en">GigaBrain-0.5M* achieves near-perfect success on <code>Box Packing</code>, <code>Espresso Preparation</code>, and <code>Laundry Folding</code>, consistently completing tasks successfully across consecutive runs.</span>
+          <span class="lang-zh">GigaBrain-0.5M* 在 <code>Box Packing</code>、<code>Espresso Preparation</code>、<code>Laundry Folding</code> 上达到接近满成功率，并且能够在连续多次运行中持续稳定成功完成任务。</span>
         </p>
       </div>
       <div class="demo-videos demo-videos-tabs">
         <div class="demo-video-player">
           <div class="demo-video-card">
             <video id="demo-video-player" controls playsinline preload="metadata" muted>
-              <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/1.m4v" type="video/mp4">
+              <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/coffe_demo.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -383,59 +383,38 @@
             <span aria-hidden="true">‹</span>
           </button>
           <div class="demo-video-strip" role="list">
-            <button class="demo-video-thumb is-active" type="button" role="listitem" aria-selected="true" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/1.m4v" data-type="video/mp4">
+            <button class="demo-video-thumb is-active" type="button" role="listitem" aria-selected="true" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/coffe_demo.mp4" data-type="video/mp4">
               <video playsinline preload="metadata" muted>
-                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/1.m4v" type="video/mp4">
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/coffe_demo.mp4" type="video/mp4">
               </video>
               <div class="demo-video-caption"><span class="lang-en">Espresso Preparation</span><span class="lang-zh">意式咖啡制作</span></div>
             </button>
-            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/2.mp4" data-type="video/mp4">
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/box_demo.mp4" data-type="video/mp4">
               <video playsinline preload="metadata" muted>
-                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/2.mp4" type="video/mp4">
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/box_demo.mp4" type="video/mp4">
               </video>
               <div class="demo-video-caption"><span class="lang-en">Box Packing</span><span class="lang-zh">装箱打包</span></div>
             </button>
-            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/3.mp4" data-type="video/mp4">
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/laundry_demo.mp4" data-type="video/mp4">
               <video playsinline preload="metadata" muted>
-                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/3.mp4" type="video/mp4">
-              </video>
-              <div class="demo-video-caption"><span class="lang-en">Laundry Collection</span><span class="lang-zh">收集衣物</span></div>
-            </button>
-            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/4.mp4" data-type="video/mp4">
-              <video playsinline preload="metadata" muted>
-                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/4.mp4" type="video/mp4">
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/laundry_demo.mp4" type="video/mp4">
               </video>
               <div class="demo-video-caption"><span class="lang-en">Laundry Folding</span><span class="lang-zh">叠衣整理</span></div>
-            </button>
-            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/5.m4v" data-type="video/mp4">
-              <video playsinline preload="metadata" muted>
-                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/5.m4v" type="video/mp4">
-              </video>
-              <div class="demo-video-caption"><span class="lang-en">Paper Towel Preparation</span><span class="lang-zh">纸巾整理</span></div>
-            </button>
-            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/6.mp4" data-type="video/mp4">
-              <video playsinline preload="metadata" muted>
-                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/6.mp4" type="video/mp4">
-              </video>
-              <div class="demo-video-caption"><span class="lang-en">Table Bussing</span><span class="lang-zh">清理餐桌</span></div>
-            </button>
-            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/7.m4v" data-type="video/mp4">
-              <video playsinline preload="metadata" muted>
-                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/7.m4v" type="video/mp4">
-              </video>
-              <div class="demo-video-caption"><span class="lang-en">Box Moving</span><span class="lang-zh">搬运箱子</span></div>
-            </button>
-            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/8.mp4" data-type="video/mp4">
-              <video playsinline preload="metadata" muted>
-                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/8.mp4" type="video/mp4">
-              </video>
-              <div class="demo-video-caption"><span class="lang-en">Juice Preparation</span><span class="lang-zh">果汁制作</span></div>
             </button>
           </div>
           <button class="demo-carousel-nav demo-carousel-next" type="button" aria-label="Next demos">
             <span aria-hidden="true">›</span>
           </button>
         </div>
+      </div>
+
+      <br>
+      <h3 class="title is-4" id="results"><span class="lang-en">GigaBrain-0.5 Performance</span><span class="lang-zh">GigaBrain-0.5 性能</span></h3>
+      <div class="content has-text-justified">
+        <p>
+          <span class="lang-en">To evaluate performance on physical robots, we collect task-specific demonstrations on the target robot platform and post-train the model for each task. We evaluate on eight internal tasks and observe consistent improvements over prior policies (GigaBrain-0, $\pi_0$, $\pi_{0.5}$).</span>
+          <span class="lang-zh">为评估真实机器人上的性能，我们在目标机器人平台上采集任务特定的示范数据，并针对每个任务进行后训练。我们在 8 个内部任务上进行评测，观察到相比先前策略（GigaBrain-0、$\pi_0$、$\pi_{0.5}$）的持续一致提升。</span>
+        </p>
       </div>
       <div class="content has-text-centered">
         <figure class="image">
