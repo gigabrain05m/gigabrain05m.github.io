@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GigaBrain-0.5M*: a VLA That Learns From World Model-Based Reinforcement Learning">
+  <meta name="keywords" content="GigaAI, Robotics, Embodied AI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GigaBrain-0.5M*: a VLA That Learns From World Model-Based Reinforcement Learning</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="lang-en">
+
+<nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <img src="./static/images/logo.png" alt="GigaAI" style="height: 28px; width: auto;">
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="#abstract"><span class="lang-en">Abstract</span><span class="lang-zh">摘要</span></a>
+      <a class="navbar-item" href="#data"><span class="lang-en">Data</span><span class="lang-zh">数据</span></a>
+      <a class="navbar-item" href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span></a>
+      <a class="navbar-item" href="#results"><span class="lang-en">Results</span><span class="lang-zh">结果</span></a>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons has-addons lang-toggle">
+          <button class="button is-small lang-btn is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button class="button is-small lang-btn" type="button" data-lang="zh" aria-pressed="false">中文</button>
+        </div>
+      </div>
+      <a class="navbar-item" href="https://github.com/open-gigaai/giga-brain-0" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero tech-hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="lang-en">GigaBrain-0.5M*: a VLA That Learns From World Model-Based Reinforcement Learning</span>
+            <span class="lang-zh">GigaBrain-0.5M*：通过世界模型自我进化的VLA大模型</span>
+          </h1>
+          <!-- <p class="subtitle is-5" style="margin-top: 0.75rem;">
+            A world model-conditioned VLA trained with RAMP for robust cross-task adaptation and long-horizon manipulation.
+          </p> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/open-gigaai">GigaAI</a></span>
+          </div>
+
+          <div class="publication-links" style="margin-top: 0.75rem;">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span class="lang-en">Paper</span><span class="lang-zh">论文</span>
+                </a>
+              </span>
+              <!-- huggingface Link. -->
+                <span class="link-block">
+                <a href="https://huggingface.co/open-gigaai"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <img src="./static/images/Huggingface.svg" alt="Hugging Face Logo">
+                  </span>
+                  <span class="lang-en">Models</span><span class="lang-zh">模型</span>
+                </a>
+              </span>
+   
+              <span class="link-block lang-en">
+                <a href="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/teaser/EN_teaser.mp4"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block lang-zh">
+                <a href="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/teaser/CN_teaser.mp4"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>视频</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/open-gigaai/giga-brain-0"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span class="lang-en">Code</span><span class="lang-zh">代码</span>
+                  </a>
+              </span>
+
+            </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="image">
+        <video
+          class="lang-en"
+          src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/teaser/EN_teaser.mp4"
+          controls
+          autoplay
+          muted
+          loop
+          playsinline
+          style="max-width: 900px; margin: auto; display: block;"
+        >
+          Your browser does not support the video tag.
+        </video>
+        <video
+          class="lang-zh"
+          src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/teaser/CN_teaser.mp4"
+          controls
+          autoplay
+          muted
+          loop
+          playsinline
+          style="max-width: 900px; margin: auto; display: block;"
+        >
+          Your browser does not support the video tag.
+        </video>
+      </figure>
+      <!-- <h3 class="subtitle has-text-centered">
+        GigaBrain-0 is a Vision-Language-Action (VLA) model trained on real-world robot data and diverse data generated by world models, including video generation data, Real2Real transfer data, human transfer data, view transfer data, and Sim2Real transfer data, to enhance its generalization in real-world environments.
+      </h3> -->
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span class="lang-en">Abstract</span><span class="lang-zh">摘要</span></h2>
+        <div class="content has-text-justified">
+          <p>
+            <span class="lang-en">Vision-language-action (VLA) models that directly predict multi-step action chunks from current observations face inherent limitations due to constrained scene understanding and weak future anticipation capabilities. In contrast, video world models pre-trained on web-scale video corpora exhibit robust spatiotemporal reasoning and accurate future prediction, making them a natural foundation for enhancing VLA learning. Therefore, we propose GigaBrain-0.5M*, a VLA model trained via world model-based reinforcement learning. Built upon GigaBrain-0.5, which is pre-trained on over 10,000 hours of robotic manipulation data, whose intermediate version currently ranks first on the international RoboChallenge benchmark. GigaBrain-0.5M* further integrates world model-based reinforcement learning via RAMP (Reinforcement leArning via world Model-conditioned Policy) to enable robust cross-task adaptation. Empirical results demonstrate that RAMP achieves substantial performance gains over the RECAP baseline, yielding improvements of approximately 30% on challenging tasks including Laundry Folding, Box Packing, and Espresso Preparation. Critically, GigaBrain-0.5M* exhibits reliable long-horizon execution, consistently accomplishing complex manipulation tasks without failure.</span>
+            <span class="lang-zh">直接从当前观测预测多步动作块的视觉-语言-动作（VLA）模型，由于场景理解受限且未来预测能力较弱，存在先天局限。相比之下，在大量视频语料上预训练的视频世界模型具备更强的时空推理与未来预测能力，是提升 VLA 学习的先验模型。因此，我们提出 GigaBrain-0.5M*：通过世界模型自我进化的VLA大模型。该模型基于 GigaBrain-0.5（在超过 10,000 小时机器人操作数据上预训练，其中间迭代的模型版本目前在国际 RoboChallenge 榜单排名第一）。GigaBrain-0.5M* 进一步通过 RAMP（Reinforcement leArning via world Model-conditioned Policy）引入基于世界模型的强化学习，实现稳健的跨任务适应。实验表明，RAMP 相比 RECAP 基线在 Laundry Folding、Box Packing、Espresso Preparation 等挑战任务上带来约 30% 的提升。更关键的是，GigaBrain-0.5M* 具备可靠的长时程执行能力，能够稳定完成复杂操作任务。</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<!-- Dataset -->
+<section class="section" id="data">
+  <div class="container is-max-desktop">
+    <div class="content">
+      <h3 class="title is-4"><span class="lang-en">Pre-train Data Distribution</span><span class="lang-zh">预训练数据分布</span></h3>
+      <p>
+        <span class="lang-en">GigaBrain-0.5 is pretrained on 10,931 hours of diverse visual experience, with 61% (6,653 hours) synthesized by our world model <a href="https://giga-world-0.github.io/">GigaWorld</a> to enable scalable coverage of novel textures, viewpoints, and object configurations. The remaining 39% (4,278 hours) comes from real-robot data, collected from our proprietary fleet and public benchmarks. Together, this forms a balanced curriculum—imagination at scale, grounded in sensor truth.</span>
+        <span class="lang-zh">GigaBrain-0.5 在 10,931 小时的多样化视觉经验上进行预训练，其中 61%（6,653 小时）由我们的世界模型 <a href="https://giga-world-0.github.io/">GigaWorld</a> 合成，用于可扩展地覆盖新纹理、视角与物体位置；其余 39%（4,278 小时）来自真实机器人数据，采集自自有机器人集群与公开基准。二者共同构成了均衡的训练数据：大规模“想象”与传感器真实数据相结合。</span>
+      </p>
+      <figure class="image">
+        <img src="./static/images/pretrain-data.png" alt="dataset samples" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
+      </figure>
+    </div>
+
+    <!-- <div>
+      <h3 class="title is-4">Statistics</h3>
+
+      <div class="content">
+        <p>
+          GigaBrain-0's self-collected real-world robot data is gathered from PiPER arms and the AgiBot G1 platform, spanning diverse environments including homes, supermarkets, factories, and office settings.
+        </p>
+        <figure class="image">
+          <img src="./static/images/dataset_collection.png" alt="scenes distribution" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
+        </figure>
+      </div>
+
+      <div class="content">
+        <p>
+          GigaWorld enables Real2Real apperance transfer by taking real-world captured data and generating generalized variations in texture, color, lighting, and material properties.
+        </p>
+        <figure class="image">
+          <img src="./static/images/real2real_transfer.png" alt="objects distribution" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
+        </figure>
+      </div>
+
+      <div class="content">
+        <p>
+          GigaWorld supports view transfer by re-rendering real-world captured data from diverse viewpoints, thereby enriching the dataset with varied perspective changes.
+        </p>
+        <figure class="image">
+          <img src="./static/images/view_transfer.png" alt="view transfer examples" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
+        </figure>
+      </div>
+
+      <div class="content">
+        <p>
+          GigaWorld enables Sim2Real transfer by generalizing simulation-collected data in terms of texture, color, lighting, and material properties to better bridge the domain gap and enhance realism.
+        </p>
+        <figure class="image">
+          <img src="./static/images/sim2real_transfer.png" alt="sim2real transfer" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
+        </figure>
+      </div>
+
+      <div class="content">
+        <p>
+          GigaWorld supports egocentric human video transfer by transforming first-person human hand actions into robotic manipulation scenarios, effectively mapping human demonstrations to robot-executable tasks.
+        </p>
+        <figure class="image">
+          <img src="./static/images/mimic.png" alt="human to robot transfer" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
+        </figure>
+      </div>
+
+      <div class="content">
+        <p>
+          GigaWorld can generate diverse future trajectories from the same initial frame under different text prompts, thereby augmenting the dataset with novel manipulation sequences.
+        </p>
+        <figure class="image">
+          <img src="./static/images/idm.png" alt="future trajectory generation" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
+        </figure>
+      </div>
+
+      <div class="content">
+        <p>
+          GigaWorld can generate multi-view consistent videos, thereby enabling 3D-aware training and improving spatial reasoning in downstream tasks.
+        </p>
+        <figure class="image">
+          <img src="./static/images/multiview_gen_demo.png" alt="multi-view generation" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
+        </figure>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+
+<!-- Model -->
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <!-- <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">GigaBrain-0 Model</h2>
+      </div>
+    </div> -->
+
+    <h3 class="title is-4" id="architecture"><span class="lang-en">Model Architecture</span><span class="lang-zh">模型架构</span></h3>
+      <div class="content has-text-justified">
+        <p>
+          <span class="lang-en">GigaBrain-0.5M* is a world model-conditioned VLA trained via world model-based reinforcement learning. Pretrained on multimodal, robot manipulation, and web video data, it enables self-improvement through human-in-the-loop (HIL) rollout that generates diverse training data for continual training.</span>
+          <span class="lang-zh">GigaBrain-0.5M* 是通过世界模型自我进化的VLA大模型。它在多模态、机器人操作与视频数据上预训练，并通过人类在环（HIL）rollout 持续生成多样化训练数据，实现持续训练与自我改进。</span>
+        </p>
+      </div>
+      <div class="content has-text-centered">
+        <figure class="image">
+          <img src="./static/images/method.png" alt="VLA architecture">
+        </figure>
+      </div>
+
+    <div>
+      <h3 class="title is-4"><span class="lang-en">Reinforcement Learning via World Model-Conditioned Policy</span><span class="lang-zh">基于世界模型条件策略的强化学习</span></h3>
+      <div class="content has-text-justified">
+        <p>
+          <span class="lang-en">The RAMP (Reinforcement leArning via world Model-conditioned Policy) framework follows an iterative four-stage training paradigm:</span>
+          <span class="lang-zh">RAMP（Reinforcement leArning via world Model-conditioned Policy）框架采用迭代式的四阶段训练范式：</span>
+        </p>
+        <ol>
+          <li>
+            <span class="lang-en">The world model is pretrained on large-scale robot manipulation data to forecast future states and associated value.</span>
+            <span class="lang-zh">在大规模机器人操作数据上预训练世界模型，用于预测未来状态及其对应价值。</span>
+          </li>
+          <li>
+            <span class="lang-en">The policy is fine-tuned by conditioning action selection on the world model’s predicted futures and value estimates.</span>
+            <span class="lang-zh">以世界模型预测的未来与价值估计作为条件，对策略进行微调以指导动作选择。</span>
+          </li>
+          <li>
+            <span class="lang-en">The conditioned policy is deployed in physical environments to collect rollout trajectories under human-in-the-loop intervention.</span>
+            <span class="lang-zh">将条件策略部署到真实环境，在人类在环干预下采集 rollout 轨迹。</span>
+          </li>
+          <li>
+            <span class="lang-en">Both the world model and policy are jointly refined using the curated rollout dataset.</span>
+            <span class="lang-zh">使用筛选后的 rollout 数据集联合优化世界模型与策略。</span>
+          </li>
+        </ol>
+        <p>
+          <span class="lang-en">This iterative training paradigm enables continual learning and self-improvement.</span>
+          <span class="lang-zh">该迭代式训练范式支持持续学习与自我提升。</span>
+        </p>
+        <p>
+          <span class="lang-en">RAMP is inspired by RECAP in $\pi^*_{0.6}$, as both approaches condition the VLA model on additional information. However, RECAP uses only sparse advantages (0 or 1) as input, providing limited information gain. In contrast, RAMP leverages future states predicted by a well-pretrained world model, yielding substantially richer conditioning signals. We further provide a theoretical analysis showing that RECAP is a special case of RAMP.</span>
+          <span class="lang-zh">RAMP 的设计受到 $\pi^*_{0.6}$ 中 RECAP 的启发，两者都通过附加信息对 VLA 模型进行条件化。但 RECAP 仅使用稀疏优势（0 或 1）作为输入，信息增益有限；相比之下，RAMP 利用预训练充分的世界模型所预测的未来状态，提供更丰富的条件信号。我们进一步给出理论分析，说明 RECAP 是 RAMP 的一种特例。</span>
+        </p>
+      </div>
+      <div class="content has-text-centered">
+        <figure class="image">
+          <img src="./static/images/ramp.png" alt="Benchmarking Pre-training">
+        </figure>
+      </div>
+    </div>
+
+    <br>
+    <div>
+      <h3 class="title is-4" id="results"><span class="lang-en">GigaBrain-0.5 Performance</span><span class="lang-zh">GigaBrain-0.5 性能</span></h3>
+      <div class="content has-text-justified">
+        <p>
+          <span class="lang-en">To evaluate performance on physical robots, we collect task-specific demonstrations on the target robot platform and post-train the model for each task. We evaluate on eight internal tasks and observe consistent improvements over prior policies (GigaBrain-0, $\pi_0$, $\pi_{0.5}$).</span>
+          <span class="lang-zh">为评估真实机器人上的性能，我们在目标机器人平台上采集任务特定的示范数据，并针对每个任务进行后训练。我们在 8 个内部任务上进行评测，观察到相比先前策略（GigaBrain-0、$\pi_0$、$\pi_{0.5}$）的持续一致提升。</span>
+        </p>
+      </div>
+      <div class="demo-videos demo-videos-tabs">
+        <div class="demo-video-player">
+          <div class="demo-video-card">
+            <video id="demo-video-player" controls playsinline preload="metadata" muted>
+              <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/1.m4v" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="demo-video-carousel" aria-label="Demo videos">
+          <button class="demo-carousel-nav demo-carousel-prev" type="button" aria-label="Previous demos">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <div class="demo-video-strip" role="list">
+            <button class="demo-video-thumb is-active" type="button" role="listitem" aria-selected="true" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/1.m4v" data-type="video/mp4">
+              <video playsinline preload="metadata" muted>
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/1.m4v" type="video/mp4">
+              </video>
+              <div class="demo-video-caption"><span class="lang-en">Espresso Preparation</span><span class="lang-zh">意式咖啡制作</span></div>
+            </button>
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/2.mp4" data-type="video/mp4">
+              <video playsinline preload="metadata" muted>
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/2.mp4" type="video/mp4">
+              </video>
+              <div class="demo-video-caption"><span class="lang-en">Box Packing</span><span class="lang-zh">装箱打包</span></div>
+            </button>
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/3.mp4" data-type="video/mp4">
+              <video playsinline preload="metadata" muted>
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/3.mp4" type="video/mp4">
+              </video>
+              <div class="demo-video-caption"><span class="lang-en">Laundry Collection</span><span class="lang-zh">收集衣物</span></div>
+            </button>
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/4.mp4" data-type="video/mp4">
+              <video playsinline preload="metadata" muted>
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/4.mp4" type="video/mp4">
+              </video>
+              <div class="demo-video-caption"><span class="lang-en">Laundry Folding</span><span class="lang-zh">叠衣整理</span></div>
+            </button>
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/5.m4v" data-type="video/mp4">
+              <video playsinline preload="metadata" muted>
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/5.m4v" type="video/mp4">
+              </video>
+              <div class="demo-video-caption"><span class="lang-en">Paper Towel Preparation</span><span class="lang-zh">纸巾整理</span></div>
+            </button>
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/6.mp4" data-type="video/mp4">
+              <video playsinline preload="metadata" muted>
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/6.mp4" type="video/mp4">
+              </video>
+              <div class="demo-video-caption"><span class="lang-en">Table Bussing</span><span class="lang-zh">清理餐桌</span></div>
+            </button>
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/7.m4v" data-type="video/mp4">
+              <video playsinline preload="metadata" muted>
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/7.m4v" type="video/mp4">
+              </video>
+              <div class="demo-video-caption"><span class="lang-en">Box Moving</span><span class="lang-zh">搬运箱子</span></div>
+            </button>
+            <button class="demo-video-thumb" type="button" role="listitem" aria-selected="false" data-src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/8.mp4" data-type="video/mp4">
+              <video playsinline preload="metadata" muted>
+                <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/demo_video/8.mp4" type="video/mp4">
+              </video>
+              <div class="demo-video-caption"><span class="lang-en">Juice Preparation</span><span class="lang-zh">果汁制作</span></div>
+            </button>
+          </div>
+          <button class="demo-carousel-nav demo-carousel-next" type="button" aria-label="Next demos">
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+      </div>
+      <div class="content has-text-centered">
+        <figure class="image">
+          <img src="./static/images/internal_eval.png" alt="Internal task evaluation results">
+        </figure>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          <span class="lang-en">On the public RoboChallenge benchmark, an intermediate model (GigaBrain-0.1) ranks first on the leaderboard as of February 9, 2026, achieving an average success rate of 51.67% (9% higher than $\pi_{0.5}$ at 42.67%).</span>
+          <span class="lang-zh">在公开的 RoboChallenge 基准上，截至 2026 年 2 月 9 日，我们的中间模型（GigaBrain-0.1）位列榜单第一，平均成功率达到 51.67%（比 $\pi_{0.5}$ 的 42.67% 高 9 个百分点）。</span>
+        </p>
+      </div>
+      <div class="content has-text-centered">
+        <figure class="image">
+          <img src="./static/images/rc.jpeg" alt="RoboChallenge leaderboard snapshot">
+        </figure>
+      </div>
+    </div>
+
+    <br>
+    <div>
+      <h3 class="title is-4"><span class="lang-en">Value Prediction Performance</span><span class="lang-zh">价值预测性能</span></h3>
+      <div class="content has-text-justified">
+        <p>
+          <span class="lang-en">Our analysis highlights three takeaways:</span>
+          <span class="lang-zh">我们的分析总结出三点结论：</span>
+        </p>
+        <ul>
+          <li>
+            <span class="lang-en"><strong>VLM-based:</strong> highest latency (0.32 s/frame on an A800 GPU), dominated by the SigLIP visual encoder.</span>
+            <span class="lang-zh"><strong>基于 VLM：</strong> 延迟最高（A800 上 0.32 s/帧），主要由 SigLIP 视觉编码器耗时主导。</span>
+          </li>
+          <li>
+            <span class="lang-en"><strong>WM-based (value only):</strong> fastest inference (0.11 s) but lower accuracy (MAE = 0.0838, Kendall  = 0.7288).</span>
+            <span class="lang-zh"><strong>基于世界模型（仅价值）：</strong> 推理最快（0.11 s），但精度较低（MAE = 0.0838，Kendall  = 0.7288）。</span>
+          </li>
+          <li>
+            <span class="lang-en"><strong>WM-based (state+value):</strong> best accuracy (Kendall = = 0.8018, MAE = 0.0621) with competitive speed (0.25 s).</span>
+            <span class="lang-zh"><strong>基于世界模型（状态+价值）：</strong> 精度最佳（Kendall  = 0.8018，MAE = 0.0621），同时速度具有竞争力（0.25 s）。</span>
+          </li>
+        </ul>
+        <p>
+          <span class="lang-en">Qualitative value prediction visualizations are shown below.</span>
+          <span class="lang-zh">下方展示价值预测的定性可视化结果。</span>
+        </p>
+      </div>
+      <div class="content">
+        <div class="value-demo">
+          <div class="value-demo-overlay">
+            <video id="value-demo-video" controls playsinline preload="metadata" muted>
+              <source src="https://github.com/gigabrain05m/gigabrain05m.github.io/releases/download/value_demo/value_vis.mp4" type="video/mp4">
+            </video>
+            <canvas id="value-demo-canvas"></canvas>
+            <div class="value-demo-hint">
+              <span class="lang-en">Drag on the curve to scrub the video.</span>
+              <span class="lang-zh">在曲线上拖动即可定位视频进度。</span>
+            </div>
+          </div>
+          <div class="value-demo-status" id="value-demo-status">
+            <span class="lang-en">Loading prediction data…</span>
+            <span class="lang-zh">正在加载预测数据…</span>
+          </div>
+        </div>
+      </div>
+      <div class="content has-text-centered">
+        <figure class="image">
+          <img src="./static/images/value.png" alt="VLM Instruction accuracy in benchmark tasks" style="width: 80%; display: block; margin: auto;">
+        </figure>
+      </div>
+    </div>
+
+
+
+    <br>
+    <div>
+      <h3 class="title is-4"><span class="lang-en">World Model Conditioning for Policy Learning</span><span class="lang-zh">用于策略学习的世界模型条件</span></h3>
+      <div class="content has-text-justified">
+        <p>
+          <span class="lang-en">Incorporating the world model yields substantial performance gains across tasks, with improvements consistently observed throughout training from 5,000 to 20,000 steps. The benefit is particularly pronounced in the multi-task setting, where the success-rate gap widens progressively and reaches about 30% on tasks such as Box Packing at 20,000 steps. This suggests that world model conditioning facilitates knowledge transfer across tasks while preserving strong single-task performance.</span>
+          <span class="lang-zh">引入世界模型后，多任务与单任务均获得显著性能提升，并且在 5,000 到 20,000 步的训练过程中持续可见。收益在多任务设置下尤为明显：成功率差距随训练逐步拉大，在 20,000 步时例如 Box Packing 等任务可达到约 30%。这表明世界模型条件化有助于跨任务知识迁移，同时保持强单任务性能。</span>
+        </p>
+      </div>
+      <div class="content has-text-centered">
+        <figure class="image">
+          <img src="./static/images/wm_condition.png" alt="VLM Instruction accuracy in benchmark tasks" style="width: 100%; display: block; margin: auto;">
+        </figure>
+      </div>
+    </div>
+
+
+
+    <br>
+    <div>
+      <h3 class="title is-4"><span class="lang-en">Comparison with RL Baselines</span><span class="lang-zh">与 RL 基线对比</span></h3>
+      <div class="content has-text-justified">
+        <p>
+          <span class="lang-en">We benchmark RAMP against state-of-the-art RL baselines:</span>
+          <span class="lang-zh">我们将 RAMP 与当前先进的 RL 基线进行对比：</span>
+        </p>
+        <ul>
+          <li>
+            <span class="lang-en"><em>GigaBrain-0.5</em> + <strong>AWR</strong>: online fine-tuning with weighted imitation learning using policy rollouts.</span>
+            <span class="lang-zh"><em>GigaBrain-0.5</em> + <strong>AWR</strong>：基于策略 rollout 的加权模仿学习进行在线微调。</span>
+          </li>
+          <li>
+            <span class="lang-en"><em>GigaBrain-0.5</em> + <strong>RECAP</strong>: advantage-conditioned offline RL baseline without future-state prediction.</span>
+            <span class="lang-zh"><em>GigaBrain-0.5</em> + <strong>RECAP</strong>：优势条件化的离线 RL 基线，不使用未来状态预测。</span>
+          </li>
+          <li>
+            <span class="lang-en"><em>GigaBrain-0.5</em> + <strong>RAMP</strong> (<em>GigaBrain-0.5M<sup>*</sup></em>): conditions the policy on predicted value and future-state latents for long-horizon tasks.</span>
+            <span class="lang-zh"><em>GigaBrain-0.5</em> + <strong>RAMP</strong>（<em>GigaBrain-0.5M<sup>*</sup></em>）：以预测价值与未来状态隐变量作为条件，提升长时程任务表现。</span>
+          </li>
+        </ul>
+        <p>
+          <span class="lang-en">RAMP achieves near-perfect success on <code>Box Packing</code>, <code>Espresso Preparation</code>, and <code>Laundry Folding</code>, outperforming all baselines; gains on <code>Box Packing</code> and <code>Espresso Preparation</code> exceed RECAP by about 30 percentage points. <em>GigaBrain-0.5M<sup>*</sup></em> also transfers reliably to real-world deployment, as shown in the first videos on this page.</span>
+          <span class="lang-zh">RAMP 在 <code>Box Packing</code>、<code>Espresso Preparation</code>、<code>Laundry Folding</code> 上接近满成功率，整体优于所有基线；其中 <code>Box Packing</code> 与 <code>Espresso Preparation</code> 相比 RECAP 的提升约 30 个百分点。<em>GigaBrain-0.5M<sup>*</sup></em> 也能可靠迁移到真实环境部署，页面中的第一个视频展示了其效果。</span>
+        </p>
+      </div>
+      <div class="content has-text-centered">
+        <figure class="image">
+          <img src="./static/images/ramp_performance.png" alt="VLM Instruction accuracy in benchmark tasks" style="width: 100%; display: block; margin: auto;">
+        </figure>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/GigaAI-research" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            <span class="lang-en">This website page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</span>
+            <span class="lang-zh">本网页内容采用 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> 许可协议。</span>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
